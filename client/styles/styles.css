@@ -46,6 +46,10 @@ body {
     line-height: 13px;
 }
 
+.username {
+  color: firebrick;
+}
+
 form {
     padding: 20px;
     padding-left: 0;
@@ -57,6 +61,10 @@ form input[type=text] {
     width: 70%;
     font-size: 12px;
     padding: 5px;
+}
+
+.friend {
+    background-color: chartreuse;
 }
 
 .chat {
@@ -87,4 +95,3 @@ form input[type=text] {
     color: #fff;
     background-color: #0090da;
 }
-

@@ -28,6 +28,13 @@
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
       <select id="roomSelect">Rooms:</select>
+      <h3>New Room:</h3>
+      <form>
+        <input id="newRoom" type="text">
+        <input id="submit" type="button" value="Submit" onclick='app.addOneRoom();'>
+      </form>
+
+      <h3>Enter Message:</h3>
       <form>
         <input id="message" type="text">
         <input id="submit" type="button" value="Submit" onclick='app.createMessage();'>
@@ -36,6 +43,23 @@
     <div id="chats"></div>
     <script>
       app.init();
+    </script>
+
+    <script>
+      $('#roomSelect').change(function(){
+        app._currentRoom = $('select#roomSelect option:checked').text();
+        app.filterRooms(app._currentRoom)
+      });
+      $(document.body).on('click', 'span.username' ,function(){
+        var renderedMessages = $('#chats').children();
+        app.addFriend($(this).text());
+        for (var i = 0 ; i < renderedMessages.length ; i++){
+          if (app._friends[$(renderedMessages[i]).find('span').text()]){
+            $(renderedMessages[i]).addClass("friend");
+          }
+        }
+       // console.log(renderedMessages);
+      });
     </script>
   </body>
 </html>
